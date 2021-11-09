@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <meta charset="UTF-8">
+ <title>Asymmetric</title>
+ <script>
+ //สมุติว่าเรามีข้อมูล ที่เป็นไปได้คือ 0-9
+ //และข้อมูลที่เราต้องการจะเข้ารหัสคือ 6
+ var secret = 6; //
+
+ //Key ของนายA
+ var publicKey_A = 8;
+ var PrivateKey_A = 2;
+
+ //Key ของนายB
+ var publicKey_B = 4;
+ var PrivateKey_B = 6;
+
+ //เข้ารหัสด้วย public key ของA
+ var encode_A = (secret+publicKey_A)%10;
+ //ถอดรหัสด้วย Private key ของA
+ var decode_A = (encode_A+PrivateKey_A)%10;
+
+ //เข้ารหัสด้วย public key ของB
+ var encode_B = (secret+publicKey_B)%10;
+ //ถอดรหัสด้วย Private key ของB
+ var decode_B = (encode_B+PrivateKey_B)%10;
+
+
+ document.write( "Encryption 6 ด้วย public key ของA ได้: " + encode_A + " <---ข้อมูลที่ถูกเข้ารหัสแล้ว<br>");
+ document.write( "Decryption 4 ด้วย Private key ของA ได้: " + decode_A + "<---ข้อมูลจริง<br><br>" );
+
+ document.write( "เข้ารหัสเลข 6 ด้วย public key ของB ได้: " + encode_B + "<---ข้อมูลที่ถูกเข้ารหัสแล้ว<br>");
+ document.write( "ถอดรหัสเลข 0 ด้วย Private key ของB ได้: " + decode_B + "<---ข้อมูลจริง<br>" );
+
+ </script>
+ </head>
+ <body>
+
+ </body>
+</html>
